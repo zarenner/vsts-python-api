@@ -39,7 +39,7 @@ class FeedClient(VssClient):
             route_values['packageId'] = self._serialize.url('package_id', package_id, 'str')
         response = self._send(http_method='GET',
                               location_id='61d885fd-10f3-4a55-82b6-476d866b673f',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values)
         return self._deserialize('str', response)
 
@@ -47,14 +47,14 @@ class FeedClient(VssClient):
         """GetFeedChange.
         [Preview API]
         :param str feed_id:
-        :rtype: :class:`<FeedChange> <feed.v4_1.models.FeedChange>`
+        :rtype: :class:`<FeedChange> <feed.v4_2.models.FeedChange>`
         """
         route_values = {}
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         response = self._send(http_method='GET',
                               location_id='29ba2dad-389a-4661-b5d3-de76397ca05b',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values)
         return self._deserialize('FeedChange', response)
 
@@ -64,7 +64,7 @@ class FeedClient(VssClient):
         :param bool include_deleted:
         :param long continuation_token:
         :param int batch_size:
-        :rtype: :class:`<FeedChangesResponse> <feed.v4_1.models.FeedChangesResponse>`
+        :rtype: :class:`<FeedChangesResponse> <feed.v4_2.models.FeedChangesResponse>`
         """
         query_parameters = {}
         if include_deleted is not None:
@@ -75,20 +75,20 @@ class FeedClient(VssClient):
             query_parameters['batchSize'] = self._serialize.query('batch_size', batch_size, 'int')
         response = self._send(http_method='GET',
                               location_id='29ba2dad-389a-4661-b5d3-de76397ca05b',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               query_parameters=query_parameters)
         return self._deserialize('FeedChangesResponse', response)
 
     def create_feed(self, feed):
         """CreateFeed.
         [Preview API]
-        :param :class:`<Feed> <feed.v4_1.models.Feed>` feed:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :param :class:`<Feed> <feed.v4_2.models.Feed>` feed:
+        :rtype: :class:`<Feed> <feed.v4_2.models.Feed>`
         """
         content = self._serialize.body(feed, 'Feed')
         response = self._send(http_method='POST',
                               location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               content=content)
         return self._deserialize('Feed', response)
 
@@ -102,7 +102,7 @@ class FeedClient(VssClient):
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         self._send(http_method='DELETE',
                    location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
-                   version='4.1-preview.1',
+                   version='4.2-preview.1',
                    route_values=route_values)
 
     def get_feed(self, feed_id, include_deleted_upstreams=None):
@@ -110,7 +110,7 @@ class FeedClient(VssClient):
         [Preview API]
         :param str feed_id:
         :param bool include_deleted_upstreams:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :rtype: :class:`<Feed> <feed.v4_2.models.Feed>`
         """
         route_values = {}
         if feed_id is not None:
@@ -120,7 +120,7 @@ class FeedClient(VssClient):
             query_parameters['includeDeletedUpstreams'] = self._serialize.query('include_deleted_upstreams', include_deleted_upstreams, 'bool')
         response = self._send(http_method='GET',
                               location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Feed', response)
@@ -139,7 +139,7 @@ class FeedClient(VssClient):
             query_parameters['includeDeletedUpstreams'] = self._serialize.query('include_deleted_upstreams', include_deleted_upstreams, 'bool')
         response = self._send(http_method='GET',
                               location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[Feed]', response)
@@ -147,9 +147,9 @@ class FeedClient(VssClient):
     def update_feed(self, feed, feed_id):
         """UpdateFeed.
         [Preview API]
-        :param :class:`<FeedUpdate> <feed.v4_1.models.FeedUpdate>` feed:
+        :param :class:`<FeedUpdate> <feed.v4_2.models.FeedUpdate>` feed:
         :param str feed_id:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :rtype: :class:`<Feed> <feed.v4_2.models.Feed>`
         """
         route_values = {}
         if feed_id is not None:
@@ -157,7 +157,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(feed, 'FeedUpdate')
         response = self._send(http_method='PATCH',
                               location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Feed', response)
@@ -169,7 +169,7 @@ class FeedClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='a74419ef-b477-43df-8758-3cd1cd5f56c6',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               returns_collection=True)
         return self._deserialize('[GlobalPermission]', response)
 
@@ -182,7 +182,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(global_permissions, '[GlobalPermission]')
         response = self._send(http_method='PATCH',
                               location_id='a74419ef-b477-43df-8758-3cd1cd5f56c6',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               content=content,
                               returns_collection=True)
         return self._deserialize('[GlobalPermission]', response)
@@ -193,7 +193,7 @@ class FeedClient(VssClient):
         :param str feed_id:
         :param long continuation_token:
         :param int batch_size:
-        :rtype: :class:`<PackageChangesResponse> <feed.v4_1.models.PackageChangesResponse>`
+        :rtype: :class:`<PackageChangesResponse> <feed.v4_2.models.PackageChangesResponse>`
         """
         route_values = {}
         if feed_id is not None:
@@ -205,7 +205,7 @@ class FeedClient(VssClient):
             query_parameters['batchSize'] = self._serialize.query('batch_size', batch_size, 'int')
         response = self._send(http_method='GET',
                               location_id='323a0631-d083-4005-85ae-035114dfb681',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('PackageChangesResponse', response)
@@ -221,7 +221,7 @@ class FeedClient(VssClient):
         :param bool is_release:
         :param bool include_deleted:
         :param bool include_description:
-        :rtype: :class:`<Package> <feed.v4_1.models.Package>`
+        :rtype: :class:`<Package> <feed.v4_2.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -243,7 +243,7 @@ class FeedClient(VssClient):
             query_parameters['includeDescription'] = self._serialize.query('include_description', include_description, 'bool')
         response = self._send(http_method='GET',
                               location_id='7a20d846-c929-4acc-9ea2-0d5a7df1b197',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Package', response)
@@ -302,17 +302,18 @@ class FeedClient(VssClient):
             query_parameters['directUpstreamId'] = self._serialize.query('direct_upstream_id', direct_upstream_id, 'str')
         response = self._send(http_method='GET',
                               location_id='7a20d846-c929-4acc-9ea2-0d5a7df1b197',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[Package]', response)
 
-    def get_feed_permissions(self, feed_id, include_ids=None):
+    def get_feed_permissions(self, feed_id, include_ids=None, exclude_inherited_permissions=None):
         """GetFeedPermissions.
         [Preview API]
         :param str feed_id:
         :param bool include_ids:
+        :param bool exclude_inherited_permissions:
         :rtype: [FeedPermission]
         """
         route_values = {}
@@ -321,9 +322,11 @@ class FeedClient(VssClient):
         query_parameters = {}
         if include_ids is not None:
             query_parameters['includeIds'] = self._serialize.query('include_ids', include_ids, 'bool')
+        if exclude_inherited_permissions is not None:
+            query_parameters['excludeInheritedPermissions'] = self._serialize.query('exclude_inherited_permissions', exclude_inherited_permissions, 'bool')
         response = self._send(http_method='GET',
                               location_id='be8c1476-86a7-44ed-b19d-aec0e9275cd8',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -342,7 +345,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(feed_permission, '[FeedPermission]')
         response = self._send(http_method='PATCH',
                               location_id='be8c1476-86a7-44ed-b19d-aec0e9275cd8',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -354,7 +357,7 @@ class FeedClient(VssClient):
         :param str feed_id:
         :param str package_id:
         :param bool include_urls:
-        :rtype: :class:`<Package> <feed.v4_1.models.Package>`
+        :rtype: :class:`<Package> <feed.v4_2.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -366,7 +369,7 @@ class FeedClient(VssClient):
             query_parameters['includeUrls'] = self._serialize.query('include_urls', include_urls, 'bool')
         response = self._send(http_method='GET',
                               location_id='2704e72c-f541-4141-99be-2004b50b05fa',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Package', response)
@@ -401,7 +404,7 @@ class FeedClient(VssClient):
             query_parameters['includeAllVersions'] = self._serialize.query('include_all_versions', include_all_versions, 'bool')
         response = self._send(http_method='GET',
                               location_id='2704e72c-f541-4141-99be-2004b50b05fa',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -414,7 +417,7 @@ class FeedClient(VssClient):
         :param str package_id:
         :param str package_version_id:
         :param bool include_urls:
-        :rtype: :class:`<RecycleBinPackageVersion> <feed.v4_1.models.RecycleBinPackageVersion>`
+        :rtype: :class:`<RecycleBinPackageVersion> <feed.v4_2.models.RecycleBinPackageVersion>`
         """
         route_values = {}
         if feed_id is not None:
@@ -428,7 +431,7 @@ class FeedClient(VssClient):
             query_parameters['includeUrls'] = self._serialize.query('include_urls', include_urls, 'bool')
         response = self._send(http_method='GET',
                               location_id='aceb4be7-8737-4820-834c-4c549e10fdc7',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('RecycleBinPackageVersion', response)
@@ -451,7 +454,7 @@ class FeedClient(VssClient):
             query_parameters['includeUrls'] = self._serialize.query('include_urls', include_urls, 'bool')
         response = self._send(http_method='GET',
                               location_id='aceb4be7-8737-4820-834c-4c549e10fdc7',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -467,30 +470,30 @@ class FeedClient(VssClient):
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         self._send(http_method='DELETE',
                    location_id='ed52a011-0112-45b5-9f9e-e14efffb3193',
-                   version='4.1-preview.1',
+                   version='4.2-preview.1',
                    route_values=route_values)
 
     def get_feed_retention_policies(self, feed_id):
         """GetFeedRetentionPolicies.
         [Preview API]
         :param str feed_id:
-        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>`
+        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_2.models.FeedRetentionPolicy>`
         """
         route_values = {}
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         response = self._send(http_method='GET',
                               location_id='ed52a011-0112-45b5-9f9e-e14efffb3193',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values)
         return self._deserialize('FeedRetentionPolicy', response)
 
     def set_feed_retention_policies(self, policy, feed_id):
         """SetFeedRetentionPolicies.
         [Preview API]
-        :param :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>` policy:
+        :param :class:`<FeedRetentionPolicy> <feed.v4_2.models.FeedRetentionPolicy>` policy:
         :param str feed_id:
-        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>`
+        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_2.models.FeedRetentionPolicy>`
         """
         route_values = {}
         if feed_id is not None:
@@ -498,7 +501,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(policy, 'FeedRetentionPolicy')
         response = self._send(http_method='PUT',
                               location_id='ed52a011-0112-45b5-9f9e-e14efffb3193',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('FeedRetentionPolicy', response)
@@ -512,7 +515,7 @@ class FeedClient(VssClient):
         :param bool include_urls:
         :param bool is_listed:
         :param bool is_deleted:
-        :rtype: :class:`<PackageVersion> <feed.v4_1.models.PackageVersion>`
+        :rtype: :class:`<PackageVersion> <feed.v4_2.models.PackageVersion>`
         """
         route_values = {}
         if feed_id is not None:
@@ -530,7 +533,7 @@ class FeedClient(VssClient):
             query_parameters['isDeleted'] = self._serialize.query('is_deleted', is_deleted, 'bool')
         response = self._send(http_method='GET',
                               location_id='3b331909-6a86-44cc-b9ec-c1834c35498f',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('PackageVersion', response)
@@ -559,7 +562,7 @@ class FeedClient(VssClient):
             query_parameters['isDeleted'] = self._serialize.query('is_deleted', is_deleted, 'bool')
         response = self._send(http_method='GET',
                               location_id='3b331909-6a86-44cc-b9ec-c1834c35498f',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -568,9 +571,9 @@ class FeedClient(VssClient):
     def create_feed_view(self, view, feed_id):
         """CreateFeedView.
         [Preview API]
-        :param :class:`<FeedView> <feed.v4_1.models.FeedView>` view:
+        :param :class:`<FeedView> <feed.v4_2.models.FeedView>` view:
         :param str feed_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <feed.v4_2.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:
@@ -578,7 +581,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(view, 'FeedView')
         response = self._send(http_method='POST',
                               location_id='42a8502a-6785-41bc-8c16-89477d930877',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('FeedView', response)
@@ -596,7 +599,7 @@ class FeedClient(VssClient):
             route_values['viewId'] = self._serialize.url('view_id', view_id, 'str')
         self._send(http_method='DELETE',
                    location_id='42a8502a-6785-41bc-8c16-89477d930877',
-                   version='4.1-preview.1',
+                   version='4.2-preview.1',
                    route_values=route_values)
 
     def get_feed_view(self, feed_id, view_id):
@@ -604,7 +607,7 @@ class FeedClient(VssClient):
         [Preview API]
         :param str feed_id:
         :param str view_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <feed.v4_2.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:
@@ -613,7 +616,7 @@ class FeedClient(VssClient):
             route_values['viewId'] = self._serialize.url('view_id', view_id, 'str')
         response = self._send(http_method='GET',
                               location_id='42a8502a-6785-41bc-8c16-89477d930877',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values)
         return self._deserialize('FeedView', response)
 
@@ -628,7 +631,7 @@ class FeedClient(VssClient):
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         response = self._send(http_method='GET',
                               location_id='42a8502a-6785-41bc-8c16-89477d930877',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[FeedView]', response)
@@ -636,10 +639,10 @@ class FeedClient(VssClient):
     def update_feed_view(self, view, feed_id, view_id):
         """UpdateFeedView.
         [Preview API]
-        :param :class:`<FeedView> <feed.v4_1.models.FeedView>` view:
+        :param :class:`<FeedView> <feed.v4_2.models.FeedView>` view:
         :param str feed_id:
         :param str view_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <feed.v4_2.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:
@@ -649,7 +652,7 @@ class FeedClient(VssClient):
         content = self._serialize.body(view, 'FeedView')
         response = self._send(http_method='PATCH',
                               location_id='42a8502a-6785-41bc-8c16-89477d930877',
-                              version='4.1-preview.1',
+                              version='4.2-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('FeedView', response)
